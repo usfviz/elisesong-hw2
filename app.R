@@ -1,8 +1,13 @@
 palette(c("#E41A1C", "#377EB8", "#4DAF4A", "#984EA3",
           "#FF7F00", "#FFFF33", "#A65628", "#F781BF", "#999999"))
-library(shiny)
-library(plotly)
-#setwd("/Users/Elise/DataViz/HW2/")
+if (!("plotly" %in% rownames(installed.packages()))) {
+  print("Please make sure that you have plotly installed before running the app")
+  print("Please run the code again after install the package")
+  install.packages("plotly")
+}
+library("shiny")
+library("ggplot2")
+library("plotly")
 
 data1 <- read.csv("API_SP.DYN.LE00.IN_DS2_en_csv_v2.csv", skip = 4, header = TRUE)[,1:59]
 data2 <- read.csv("API_SP.DYN.TFRT.IN_DS2_en_csv_v2.csv", skip = 4, header = TRUE)[,1:59]
